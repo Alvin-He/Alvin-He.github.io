@@ -15,17 +15,27 @@ $(document).ready(function () {
 
     // checking for elements
     if (content.length) {
+        let contentObjectArray = content.find('p');
+
+        let stringArray = new Array; 
+
+        // hide elements
+        for (let i = 0; i < contentObjectArray.length; i++) {
+            let currentElement = contentObjectArray.eq(i);
+
+            stringArray[i] = currentElement.html();
+            currentElement.html("");
+        }
+
+        // animation 
         (async () => { 
-
-            let contentObjectArray = content.find('p');
-
             for (let i = 0; i < contentObjectArray.length; i++) {
-                const currentElement = contentObjectArray.eq(i);
-                const stringToAnimate = currentElement.html();
-                currentElement.html("");
+                let currentElement = contentObjectArray.eq(i);
+
+                let stringToAnimate = stringArray[i]; 
 
                 for (let i = 0; i < stringToAnimate.length; i++) {
-                    const currentChar = stringToAnimate[i]; // convert into char stream
+                    let currentChar = stringToAnimate[i]; // convert into char stream
 
                     currentElement.html(currentElement.html() + currentChar);
                     // print('updated ' + currentChar);
