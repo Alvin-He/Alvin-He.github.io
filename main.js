@@ -12,7 +12,7 @@ $(document).ready(function () {
     let content = $('#content');
 
     let contentObjectArray = content.find('p');
-    let stringObjectArray = {}; 
+    let stringObjectArray = []; 
     
     
     for (let i = 0; i < contentObjectArray.length; i++) {
