@@ -11,26 +11,21 @@ $(document).ready(function () {
 
     let content = $('#content');
 
-    let contentObjectArray = content.find('p');
-    let stringObjectArray = new Array; 
-    
-    
-    for (let i = 0; i < contentObjectArray.length; i++) {
-         let currentElement = contentObjectArray.eq(i);
-         stringObjectArray[i] = currentElement.html();
-         currentElement.html("");
-        
-    }; 
-    
+    //let inputString = "High School Freshmen"
 
     // checking for elements
     if (content.length) {
         (async () => { 
-            for (let i = 0; i < stringObjectArray.length; i++) {
-                let stringToAnimate = stringObjectArray[i]; 
+
+            let contentObjectArray = content.find('p');
+
+            for (let i = 0; i < contentObjectArray.length; i++) {
+                const currentElement = contentObjectArray.eq(i);
+                const stringToAnimate = currentElement.html();
+                currentElement.html("");
 
                 for (let i = 0; i < stringToAnimate.length; i++) {
-                    let currentChar = stringToAnimate[i]; // convert into char stream
+                    const currentChar = stringToAnimate[i]; // convert into char stream
 
                     currentElement.html(currentElement.html() + currentChar);
                     // print('updated ' + currentChar);
